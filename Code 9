@@ -1,0 +1,40 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <stdlib.h>
+struct person
+{
+   int age;
+   float salary;
+   char name[30];
+   float phnno;
+};
+
+int main()
+{
+   struct person *ptr;
+   int i, n, p, s;
+
+   printf("Enter the number of persons: ");
+   scanf("%d", &n);
+
+   // allocating memory for n numbers of struct person
+   ptr = (struct person*) malloc(n * sizeof(struct person));
+
+   for(i = 0; i < n; ++i)
+   {
+       printf("Enter first name,age,phnno & salary respectively: ");
+
+       // To access members of 1st struct person,
+       // ptr->name and ptr->age ptr->phnno &tr->salary is used
+
+       // To access members of 2nd struct person,
+       // (ptr+1)->name (ptr+1)->age (ptr+1)->phnno (ptr+1)->salary is used
+       scanf("%s %d %d %d", (ptr+i)->name, (ptr+i)->age,  (ptr+1)->phnno, (ptr+1)->salary );
+   }
+
+   printf("Displaying Information:\n");
+   for(i = 0; i < n; ++i)
+       printf("Name: %s\tAge: %d\nPhnno: %d\nSalary: %d\n, (ptr+i)->name, (ptr+i)->age  (ptr+1)->phnno (ptr+1)->salary");
+
+   return 0;
+}
